@@ -1,3 +1,4 @@
+import 'package:basic_api/model/getApiCallByModel.dart';
 import 'package:flutter/material.dart';
 import 'getApi.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: GetApi(),
+      home: Getapicallbymodel(),
     );
   }
 }
