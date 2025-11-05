@@ -1,0 +1,40 @@
+import 'dart:convert';
+
+import 'package:basic_api/factoryMethodUsed/postModel.dart';
+import 'package:http/http.dart' as http;
+
+class ApiServices{
+  static Future<List<PostModel>?> fetchData() async {
+    final uri=Uri.parse("https://newsapi.org/v2/everything?apiKey=0a24ad29197a438f9d75fb1c492f20f3&q=1");
+    final response = await http.get(uri);
+    if (response.statusCode == 200) {
+      print(""""""""'Successfully fetching data:'"""""""");
+      final jsonData = jsonDecode(response.body);
+      //print(jsonData['articles']);
+      final listDataAll = jsonData['articles'] as List;
+      print(listDataAll.length);
+
+      return listDataAll.map((jsonList)=>PostModel.formJson(jsonList)).toList();
+
+
+      //this part: no need we used map here
+      // for (var listData in listDataAll) {
+      //   posts.add(PostModel.formJson(listData));
+      //
+      //   //this part: is not need now because we created factory method like PostModel.formJson
+      //   // posts.add(
+      //   //   PostModel(
+      //   //     title: allPost['title'],
+      //   //     description: allPost['description'],
+      //   //     urlToImage: allPost['urlToImage'],
+      //   //   ),
+      //   // );
+      // }
+
+    }
+    else{
+      print('''''''''Your api calling not fetching ant data''''''''');
+      return null;
+    }
+  }
+}
