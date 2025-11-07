@@ -1,4 +1,5 @@
 import 'package:basic_api/factoryMethodUsed/allCodebyFactoryMethod.dart';
+import 'package:basic_api/only_for_practice_all_file/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Allcodebyfactorymethod(),
+      home: Home(),
     );
   }
 }
