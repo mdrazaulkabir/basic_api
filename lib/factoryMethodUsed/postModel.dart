@@ -2,11 +2,13 @@ class PostModel {
   final String title;
   final String description;
   final String urlToImage;
+  final String publishedAt;
 
   PostModel({
     required this.title,
     required this.description,
     required this.urlToImage,
+    required this.publishedAt
   });
 
   factory PostModel.formJson(Map<String, dynamic> json) {
@@ -21,6 +23,7 @@ class PostModel {
       title: json['title'] ?? 'there is no title',
       description: json['description'] ?? 'there  is no description found',
       urlToImage: json['urlToImage'] ?? '',
+      publishedAt:json['publishedAt'] ?? '',
     );
   }
 }
