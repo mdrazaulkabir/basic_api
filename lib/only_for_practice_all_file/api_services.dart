@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:basic_api/factoryMethodUsed/postModel.dart';
+import 'package:basic_api/factoryMethodUsed/model/postModel.dart';
 import 'package:http/http.dart' as http;
 class ApiServices{
   Future<List<PostModel>?>fetchData()async{

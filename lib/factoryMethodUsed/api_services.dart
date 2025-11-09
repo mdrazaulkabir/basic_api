@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-import 'package:basic_api/factoryMethodUsed/postModel.dart';
+import 'package:basic_api/factoryMethodUsed/model/postModel.dart';
+import 'package:basic_api/factoryMethodUsed/model/post_model_details.dart';
 import 'package:http/http.dart' as http;
 
 class ApiServices{
@@ -34,6 +35,20 @@ class ApiServices{
     }
     else{
       print('''''''''Your api calling not fetching ant data''''''''');
+      return null;
+    }
+  }
+  static Future<PostModelDetails?> singleFetchDetails(int index)async{
+    final response=await http.get(Uri.parse("https://newsapi.org/v2/everything?apiKey=0a24ad29197a438f9d75fb1c492f20f3&q=1 "));
+    if(response.statusCode==200){
+      final sinlgeJosnData = jsonDecode(response.body);
+      final singelData = sinlgeJosnData['articles'] as List;
+
+      final singleArticles = singelData[index];
+      return PostModelDetails.formJson(singleArticles);
+    }
+    else{
+      print("Not successfully single fetch data!");
       return null;
     }
   }
