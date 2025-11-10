@@ -56,7 +56,6 @@ class ApiServices{
   static Future postCreate()async{
     final response = await http.post(
       body: {
-
       },
       headers: {'accept': 'application/json'},
       Uri.parse(""),
