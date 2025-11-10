@@ -1,4 +1,4 @@
-import 'package:basic_api/factoryMethodUsed/api_services.dart';
+import 'package:basic_api/factoryMethodUsed/api_services_class/api_services.dart';
 import 'package:flutter/material.dart';
 
 class IndividualDetailsScreeen extends StatefulWidget {
@@ -49,12 +49,12 @@ class _IndividualDetailsScreeenState extends State<IndividualDetailsScreeen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.network('${data.urlToImage}'),
-              Text("Title is : ${data.title}"),
-              Text("Description is ${data.description}",maxLines: 3,overflow:TextOverflow.ellipsis),
+              Text("Title is : ${data.title}",style: TextStyle(fontWeight: FontWeight.bold),maxLines: 1,overflow: TextOverflow.ellipsis,),
+              Text("Description is : ${data.description}",maxLines: 3,overflow:TextOverflow.ellipsis),
               Card(
                 child: ListTile(
-                  title: Text("Author name:${data.sources.name}"),
-                  subtitle: Text("Sources id is ${data.sources.id}"),
+                  title: Text("Author name:${data.sources.name}",style: TextStyle(fontWeight: FontWeight.bold,),),
+                  subtitle: Text("Sources id is: ${data.sources.id}"),
                 ),
               )
             ],

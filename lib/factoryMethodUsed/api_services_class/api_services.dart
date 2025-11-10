@@ -52,4 +52,21 @@ class ApiServices{
       return null;
     }
   }
+
+  static Future postCreate()async{
+    final response = await http.post(
+      body: {
+
+      },
+      headers: {'accept': 'application/json'},
+      Uri.parse(""),
+    );
+    if(response.statusCode==200){
+      print('successfully created post!');
+    }
+    else{
+      print('failed not created post!');
+      print(response.body);  // for debug (checking which properties is missing in body)
+    }
+  }
 }

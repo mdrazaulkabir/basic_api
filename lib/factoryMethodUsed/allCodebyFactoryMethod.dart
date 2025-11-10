@@ -1,5 +1,6 @@
-import 'package:basic_api/factoryMethodUsed/api_services.dart';
-import 'package:basic_api/factoryMethodUsed/individual_details_screeen.dart';
+import 'package:basic_api/factoryMethodUsed/api_services_class/api_services.dart';
+import 'package:basic_api/factoryMethodUsed/view/individual_details_screeen.dart';
+import 'package:basic_api/factoryMethodUsed/view/post_create_onscreen.dart';
 import 'package:flutter/material.dart';
 
 class Allcodebyfactorymethod extends StatefulWidget {
@@ -92,6 +93,10 @@ class _AllcodebyfactorymethodState extends State<Allcodebyfactorymethod> {
           );
         },
       ),
+      floatingActionButton:FloatingActionButton(onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>PostCreateOnscreen()));
+      },
+      child: Icon(Icons.add),),
     );
   }
 }
