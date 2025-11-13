@@ -1,5 +1,6 @@
 import 'package:basic_api/factoryMethodUsed/allCodebyFactoryMethod.dart';
 import 'package:basic_api/get_post_allOne_folder/view_screen/profile_screen.dart';
+import 'package:basic_api/only_for_practice_all_file/post_all_here/post_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ProfileScreen(),
+      home: PostScreen(
+      ),
     );
   }
 }
