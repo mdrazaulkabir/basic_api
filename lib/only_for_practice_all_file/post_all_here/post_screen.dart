@@ -9,12 +9,14 @@ class PostScreen extends StatefulWidget {
 }
 
 class _PostScreenState extends State<PostScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    ApiCall.postCreate();
-  }
+  TextEditingController firstName=TextEditingController();
+  TextEditingController lastName=TextEditingController();
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   ApiCall.postCreate();
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +39,33 @@ class _PostScreenState extends State<PostScreen> {
           ),
         ),
       ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              TextField(
+                controller: firstName,
+                decoration: InputDecoration(
+                  hintText: 'Enter your first name',
+                  labelText: "First name:"
+                ),
+              ),
+              TextField(
+                controller: lastName,
+                decoration: InputDecoration(
+                    hintText: 'Enter your first name',
+                    labelText: "First name:"
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        ApiCall.postCreate(firstName.text, lastName.text);
+      },
+      child: Icon(Icons.done),),
     );
   }
 }

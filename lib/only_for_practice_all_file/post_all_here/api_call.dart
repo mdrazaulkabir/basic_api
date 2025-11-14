@@ -2,11 +2,11 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as httop;
 class ApiCall{
-  static Future postCreate()async{
+  static Future postCreate(String firstName, String lastName)async{
     final uri = Uri.parse('https://restful-booker.herokuapp.com/booking/');
     var body = {
-      "firstname": "Razaul",
-      "lastname": "kabir",
+      "firstname": firstName,
+      "lastname": lastName,
       "totalprice": 111,
       "depositpaid": true,
       "bookingdates": {
