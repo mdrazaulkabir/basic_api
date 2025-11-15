@@ -28,6 +28,7 @@ class PostModelPractice {
 
 
 
+
 class BookingDate{
   final String checkIn;
   final String checkOut;

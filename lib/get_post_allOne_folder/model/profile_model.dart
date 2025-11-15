@@ -32,6 +32,8 @@ class ProfileModel {
   }
 }
 
+
+
 class MoreInfo {
   final String name;
   final String name1;
@@ -43,5 +45,4 @@ class MoreInfo {
     return MoreInfo(
         name: json['name'], name1: json['name1'], name2: json['name2']);
   }
-
 }
