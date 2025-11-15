@@ -1,4 +1,5 @@
-import 'package:basic_api/only_for_practice_all_file/post_all_here/api_call.dart';
+import 'package:basic_api/only_for_practice_all_file/post_all_here/post_api_call_tojson.dart';
+import 'package:basic_api/only_for_practice_all_file/post_all_here/post_model_practice.dart';
 import 'package:flutter/material.dart';
 
 class PostScreen extends StatefulWidget {
@@ -9,8 +10,9 @@ class PostScreen extends StatefulWidget {
 }
 
 class _PostScreenState extends State<PostScreen> {
-  TextEditingController firstName=TextEditingController();
-  TextEditingController lastName=TextEditingController();
+  TextEditingController firstName = TextEditingController();
+  TextEditingController lastName = TextEditingController();
+
   // @override
   // void initState() {
   //   // TODO: implement initState
@@ -47,8 +49,8 @@ class _PostScreenState extends State<PostScreen> {
               TextField(
                 controller: firstName,
                 decoration: InputDecoration(
-                  hintText: 'Enter your first name',
-                  labelText: "First name:"
+                    hintText: 'Enter your first name',
+                    labelText: "First name:"
                 ),
               ),
               TextField(
@@ -62,10 +64,17 @@ class _PostScreenState extends State<PostScreen> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        ApiCall.postCreate(firstName.text, lastName.text);
+      floatingActionButton: FloatingActionButton(onPressed: () {
+       final model1= PostModelPractice(firstName: firstName.text,
+            lastName: lastName.text,
+            totalPrice: 11,
+            despositpaid: true,
+            bookingDate: (BookingDate(checkIn: "14-11-25", checkOut: "15O-11-25 ")),
+            additionalneeds: 'good');
+            PostApiCallTojson.post_api_call(model1);
+        //ApiCall.postCreate(firstName.text, lastName.text);
       },
-      child: Icon(Icons.done),),
+        child: Icon(Icons.done),),
     );
   }
 }
