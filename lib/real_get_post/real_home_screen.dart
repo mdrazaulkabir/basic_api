@@ -1,4 +1,4 @@
-import 'package:basic_api/real_get_post/real_api_call.dart';
+import 'package:basic_api/real_get_post/real_get_screen.dart';
 import 'package:flutter/material.dart';
 
 class RealHomeScreen extends StatefulWidget {
@@ -9,12 +9,6 @@ class RealHomeScreen extends StatefulWidget {
 }
 
 class _RealHomeScreenState extends State<RealHomeScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    RealApiCall.realGetFetchData();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,16 +40,20 @@ class _RealHomeScreenState extends State<RealHomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RealGetScreen()),
+                  );
+                },
                 child: Text("Get details by server!"),
               ),
-              SizedBox(
-                height: 50,
-              ),
+              SizedBox(height: 50),
               TextButton(
                 onPressed: () {},
                 child: Text("Do you want to post in server!"),
-              ),            ],
+              ),
+            ],
           ),
         ),
       ),
