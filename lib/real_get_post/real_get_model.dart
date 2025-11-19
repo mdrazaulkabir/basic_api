@@ -19,7 +19,7 @@ class RealGetModel {
       title: json['title'] ?? '',
       description: json['description'] ?? '',
       urlToImage: json['urlToImage'] ?? '',
-      source: Source.formJson(json['source'] ) //here is no need because source sub data need to null safety
+      source: Source.formJson(json['source'] ?? '') //here is no need because source sub data need to null safety
     );
   }
 }
